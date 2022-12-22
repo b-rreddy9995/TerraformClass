@@ -27,3 +27,17 @@ resource "azurerm_virtual_network" "vnets2" {
  name = each.key
  address_space = [each.value]
 }
+
+#To define the dependency or order of resources creation we will use "depends_on" meta argument.
+#below is the smaple code to create rg-tf-demo1 resource group after creation of "rg-meta-Demo" resource group. 
+resource "azurerm_resource_group" "rg-meta" {
+    depends_on = [
+      azurerm_resource_group.rg-meta
+    ]
+  name     = "rg-tf-demo1"
+  location = "centralindia"
+  tags     = {
+          "department" = "HR,IT"
+          "owner"      = "Ramana"
+        }
+}
