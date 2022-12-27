@@ -68,21 +68,6 @@ resource "azurerm_network_security_group" "nsg" {
     destination_address_prefix = "*"
   }
 }
-# resource "azurerm_network_security_rule" "Outbound-rule" {
-#   name                        = "AllOutbound"
-#   priority                    = 100
-#   direction                   = "Outbound"
-#   access                      = "Allow"
-#   protocol                    = "Tcp"
-#   source_port_range           = "*"
-#   destination_port_range      = "*"
-#   source_address_prefix       = "*"
-#   destination_address_prefix  = "*"
-#   resource_group_name         = azurerm_resource_group.rg-prsvn.name
-#   network_security_group_name = azurerm_network_security_group.nsg.name
-# }
-
-
 #Associate nsg with NIC
 resource "azurerm_network_interface_security_group_association" "association" {
   network_interface_id      = azurerm_network_interface.nic-prvsn.id
