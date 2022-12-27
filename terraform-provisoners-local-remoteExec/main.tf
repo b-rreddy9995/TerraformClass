@@ -1,7 +1,7 @@
 ## This configuration file is to demonistrate the provisioners.
-# Terraform provisioners are used to excute actions on remote hosts.we have two types of Provisioners 
-# 1. Generic  -- file,local-exec,remote-exec 
-# 2. Vendor provisioners -- Ansible, chef, puppet etc. 
+# Terraform provisioners are used to excute actions on remote hosts.we have two types of Provisioners.
+# 1. Generic  -- file,local-exec,remote-exec
+# 2. Vendor provisioners -- Ansible, chef, puppet etc.
 # In this demonistrated about the generic provisioners.
 #<<-------------------------------------------------------------------------->>#
 
@@ -76,7 +76,7 @@ resource "azurerm_network_interface_security_group_association" "association" {
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
 
-#<------------Create linux Virtual machine and provisioners------------------>
+#<------------Create linux Virtual machine ------------------>
 resource "azurerm_linux_virtual_machine" "vm-prvsn" {
   name                = var.vm-name
   resource_group_name = azurerm_resource_group.rg-prsvn.name
@@ -108,55 +108,10 @@ resource "azurerm_linux_virtual_machine" "vm-prvsn" {
 }
 #<---------------------Linux VM block completed------------------------>
 
-#<---------------- Creating windows virtual machine and provisioners------------------->
-# resource "azurerm_windows_virtual_machine" "vm-win" {
-#   name                = "win-vm-tf"
-#   resource_group_name = azurerm_resource_group.rg-prsvn.name
-#   location            = azurerm_resource_group.rg-prsvn.location
-#   size                = "Standard_F2"
-#   admin_username      = var.admin-user
-#   admin_password      = var.admin-password
-#   network_interface_ids = [
-#     azurerm_network_interface.nic-prvsn.id
-#   ]
 
-#   os_disk {
-#     caching              = "ReadWrite"
-#     storage_account_type = "Standard_LRS"
-#   }
 
-#   source_image_reference {
-#     publisher = "MicrosoftWindowsServer"
-#     offer     = "WindowsServer"
-#     sku       = "2019-Datacenter"
-#     version   = "latest"
-#   }
-#   provisioner "file" {
-#     source = "./nginxinstall.ps1"
-#     destination = "C:/nginxinstall.ps1"
-#      connection {
-#       host = self.public_ip_address
-#       type = "winrm"
-#       user = var.admin-user
-#       password = var.admin-password
-#     }
-#   }
-#   provisioner "remote-exec" {
-#     inline = [
-#       "./Install-Nginx.ps1 -Version 1.11.10 -InstallPath C:/Nginx"
-#     ]
-#     connection {
-#       host = self.public_ip_address
-#       type = "winrm"
-#       user = var.admin-user
-#       password = var.admin-password
-#     }
+## Resources to for provisioners for Linux VM
 
-#   }
-# }
-#<----------------------------wndows VM block completed-------------->#
-
-## Resources to for provisioners
 resource "null_resource" "provisioners-demo" {
   provisioner "file" {
     source      = "./nginxinstall.sh"
@@ -166,6 +121,7 @@ resource "null_resource" "provisioners-demo" {
       type        = "ssh"
       user        = var.admin-user
       private_key = file("~/.ssh/id_rsa")
+      timeout = "5m"
     }
   }
   provisioner "remote-exec" {
@@ -177,11 +133,39 @@ resource "null_resource" "provisioners-demo" {
       type        = "ssh"
       user        = var.admin-user
       private_key = file("~/.ssh/id_rsa")
+      timeout = "5m"
 
     }
   }
 
 }
+resource "null_resource" "sample-provisioners" {
+  provisioner "remote-exec" {
+    inline = [
+      "sudo chmod 777 -R /usr/share/nginx/html",
+      "sudo systemctl start nginx",
+    ]
+    connection {
+      host = azurerm_public_ip.pip-prsvn.ip_address
+      type = "ssh"
+      user = var.admin-user
+      private_key = file("~/.ssh/id_rsa")
+    }
+  }
+  provisioner "file" {
+    source = "./index.html"
+    destination = "/usr/share/nginx/html/index.html"
+    connection {
+      host = azurerm_public_ip.pip-prsvn.ip_address
+      type = "ssh"
+      user = var.admin-user
+      private_key = file("~/.ssh/id_rsa")
+    }
+    
+  }
+  
+}
+
 
 ## Outputs Section start here.
 
