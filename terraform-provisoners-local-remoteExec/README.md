@@ -1,3 +1,19 @@
-## Terraform Provisoners
+## Terraform Provisioners
+Terraform Provisioners are used to performing certain custom actions and \
+tasks either on the local machine or on the remote machine.
 
-Terraform not only helps us in infrastructure creation and management but also in provisioning them during resource creation or deletion. Terraform uses provisioners for this. Provisioners are used to executing scripts on a local or remote machine as part of resource creation or deletion. Provisioners are similar to EC2 instance user data or Azure VM user data scripts that only run once on the creation and if it fails terraform marks it tainted. A tainted resource is one which is planned for destruction on next terraform apply. Terraform doesn't run these scripts multiple times. If we want more flexibility then we must use a configuration management system like ansible to properly provision the instance.
+**The custom actions can vary in nature and it can be -**
+
+Running custom shell script on the local machine
+Running custom shell script on the remote machine
+Copy file to the remote machine
+
+**Also there are two types of provisioners -**\
+`Generic Provisioners (file, local-exec, and remote-exec)`\
+`Vendor Provisioners (chef, habitat, puppet, salt-masterless)`
+
+**Generic Provisioners -** Generally vendor independent and can be used with any cloud vendor(GCP, AWS, AZURE)
+
+**Vendor Provisioners -** It can only be used only with its vendor. For example, chef provisioner can only be used with chef for automating \
+and provisioning the server configuration.
+
