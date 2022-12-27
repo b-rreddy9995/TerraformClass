@@ -1,0 +1,1 @@
+echo "Hello new Host this is from File provisioner" >> "test.txt"
