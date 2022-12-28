@@ -1,0 +1,227 @@
+.serviceHeading {
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    color: #ffe164;
+    text-transform: inherit;
+    font-family: Berkshire Swash;
+    text-align: center;
+}
+
+
+.servicePara {
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    color: #fff;
+    text-transform: inherit;
+    font-family: serif;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.servciesSideHeading {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    color: #ffe164;
+    text-transform: inherit;
+    font-family: serif;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.sideHeadingPara {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    color: #fff;
+    text-transform: inherit;
+    font-family: serif;
+    text-align: left;
+    margin-top: 10px;
+    line-height: 25px;
+}
+
+.services_table_header_row {
+    background: #ffe165;
+    height: 60px;
+    color: #333;
+}
+
+.services_table_header_column {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    font-family: serif;
+}
+
+.services_table_body_column1 {
+    background: #363636;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    height: 45px;
+    font-family: serif;
+}
+
+.services_table_body_column2 {
+    background: #444442;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    height: 45px;
+    font-family: serif;
+}
+
+.services_table_body_column3 {
+    background: #363636;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    height: 45px;
+    font-family: serif;
+}
+
+.services_table_body_column4 {
+    background: #444442;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    height: 45px;
+    font-family: serif;
+}
+
+.services_table_body_column5 {
+    background: #4373d7;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    height: 45px;
+    font-family: serif;
+}
+
+.services_img {
+    width: 100px;
+    height: 100px;
+}
+
+.serviceBottomHeading {
+    /* margin-top: 30px; */
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    color: #ffe164;
+    text-transform: inherit;
+    font-family: serif;
+    text-align: center;
+}
+
+.serviceBottomPara {
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    color: #fff;
+    text-transform: inherit;
+    font-family: serif;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.tableMargin {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.ourJewelleryImg {
+    width: 200px;
+    height: 200px;
+    float: right;
+}
+
+.ourJewelleryImg1 {
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+
+.ourJewelleryImg2 {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-left: 15%;
+    margin-top: -8px;
+}
+
+.pearlsTxt {
+    text-align: center;
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.goldPicsImg {
+    background: #010101;
+    height: 410px;
+    border: 1px solid #333;
+}
+
+.silverPicsImg {
+    background: #212123;
+    height: 410px;
+    background-image: url('../images/jewellery/jewellery28.PNG');
+    background-repeat: no-repeat;
+}
+
+
+.sitemap-header {
+    display: table;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.sitemap-header > li {
+        display: inline-block;
+    }
+
+.sitemap-header > li > a {
+        display: block;
+        padding: 6px 10px;
+        text-decoration: none;
+        background-color: #bab3d5;
+        color: #fff;
+        margin: 2px;
+        font-weight: 400;
+    }
+
+.sitemapLeftMarging{
+    text-align:left !important;
+    margin-left:30%;
+    margin-bottom:10px;
+}
+
+.sitemapLinkHeading {
+    text-align: left;
+    margin-left: 30%;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    color: #0093dd;
+}
+
+.sitemapLinkStyle {
+    color: #0093dd;
+    text-align: left;
+    text-decoration: underline;
+    margin-left: 10px;
+    font-size: 20px;
+}
